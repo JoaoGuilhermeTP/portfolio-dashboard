@@ -1,9 +1,11 @@
+import styles from "./RepoCard.module.css"; // Add this import
+
 export default function RepoCard({ repo }) {
   return (
-    <div className="repo-card">
+    <div className={styles["repo-card"]}> {/* Changed this line */}
       <h2>{repo.name}</h2>
       <p>{repo.description || "No description"}</p>
-      <p className="repo-details">
+      <p className={styles["repo-details"]}> {/* Changed this line */}
         <strong>Language:</strong> {repo.language || "N/A"} &nbsp;|&nbsp;{" "}
         <strong>⭐ Stars:</strong> {repo.stargazers_count} &nbsp;|&nbsp;{" "}
         <strong>Updated:</strong>{" "}

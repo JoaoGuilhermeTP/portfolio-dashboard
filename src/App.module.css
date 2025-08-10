@@ -37,39 +37,6 @@ input[type="text"]:focus {
   outline: none;
 }
 
-.repo-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  background-color: #fafafa;
-  transition: box-shadow 0.3s ease;
-}
-
-.repo-card:hover {
-  box-shadow: 0 4px 12px rgba(3, 102, 214, 0.3);
-}
-
-.repo-card h2 {
-  margin-top: 0;
-  color: #0366d6;
-}
-
-.repo-card a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-.repo-card a:hover {
-  text-decoration: underline;
-}
-
-.repo-details {
-  font-size: 14px;
-  color: #666;
-  margin-top: 8px;
-}
-
 .section {
   margin-bottom: 24px;
   padding: 12px 0;
