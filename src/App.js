@@ -9,7 +9,7 @@ import styles from "./App.module.css";
 function App() {
   const [repos, setRepos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [userName, setUserName] = useState("JoaoGuilhermeTP");
+  const [userName, setUserName] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className={styles["app-container"]}>
-      <h1>My GitHub Portfolio</h1>
+      <h1>GitHub Repositories Dashboard</h1>
       <Routes>
         <Route
           path="/"

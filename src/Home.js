@@ -11,6 +11,7 @@ export default function Home({userName,setUserName,searchTerm,setSearchTerm,isLo
         <h2>Search by Username</h2>
         <InputSearchBox
           value={userName}
+          placeholder={"Type the username and click \"Search\""}
           instantanious={false}
           onChange={setUserName}
         />
@@ -19,6 +20,7 @@ export default function Home({userName,setUserName,searchTerm,setSearchTerm,isLo
         <InputSearchBox
           value={searchTerm}
           instantanious={true}
+          placeholder={"Filter by reopository name"}
           onChange={setSearchTerm}
         />
       </div>
