@@ -13,6 +13,9 @@ export default function InputSearchBox({placeholder, value, onChange, instantani
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
+        {value.length > 0 && (
+          <button onClick={() => onChange('')}>Clear</button>
+        )}
       </div>
     );
   } else {
