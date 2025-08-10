@@ -69,3 +69,9 @@ input[type="text"]:focus {
   color: #666;
   margin-top: 8px;
 }
+
+.section {
+  margin-bottom: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}

@@ -1,10 +1,31 @@
-export default function InputSearchBox(props) {
+import { useEffect, useState } from 'react';
+
+
+export default function InputSearchBox({placeholder, value, onChange, instantanious}) {
+  const [LocalValue, setLocalValue] = useState(value);
+
+  if (instantanious === true) {
     return (
+      <div>
         <input
-            type="text"
-            placeholder="Search repos..."
-            value={props.searchTerm}
-            onChange={(e) => props.setSearchTerm(e.target.value)}
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
         />
+      </div>
     );
+  } else {
+    return (
+      <div>
+        <input
+          type="text"
+          placeholder={placeholder}
+          value={LocalValue}
+          onChange={(e) => setLocalValue(e.target.value)}
+        />
+        <button onClick={() => onChange(LocalValue)}>Search</button>
+      </div>
+    );
+  }
 }
