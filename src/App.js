@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom"; // Import Routes and Route
+import Home from "./Home.js";
 import Repos from "./Repos.js";
 import InputSearchBox from "./InputSearchBox.js";
+import RepoDetail from "./RepoDetail.js"; // Import the new component
 import styles from "./App.module.css";
 
 function App() {
@@ -15,7 +18,6 @@ function App() {
     fetch(`https://api.github.com/users/${userName}/repos`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setRepos(data);
         setIsLoading(false);
       })
@@ -30,24 +32,22 @@ function App() {
   return (
     <div className={styles["app-container"]}>
       <h1>My GitHub Portfolio</h1>
-      <div className={styles.section}>
-        <h2>Search by Username</h2>
-        <InputSearchBox
-          value={userName}
-          instantanious={false}
-          onChange={setUserName}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              userName={userName}
+              setUserName={setUserName}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              isLoading={isLoading}
+              repos={repos}
+            />
+          }
         />
-      </div>
-      <div className={styles.section}>
-        <InputSearchBox
-          value={searchTerm}
-          instantanious={true}
-          onChange={setSearchTerm}
-        />
-      </div>
-      <div className={styles.section}>
-        {isLoading ? ( <p>Loading...</p>) : (<Repos repos={repos} searchTerm={searchTerm} />)}
-      </div>
+        <Route path="/repo/:repoName" element={<RepoDetail repos={repos} />} />
+      </Routes>
     </div>
   );
 }
