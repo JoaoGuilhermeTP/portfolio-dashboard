@@ -6,3 +6,13 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 }
+
+.error {
+  color: #e0245e;
+  background-color: #fdd;
+  border: 1px solid #e0245e;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}

@@ -1,37 +1,20 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom"; // Import Routes and Route
 import Home from "./Home.js";
-import Repos from "./Repos.js";
-import InputSearchBox from "./InputSearchBox.js";
 import RepoDetail from "./RepoDetail.js"; // Import the new component
+import useGitHubRepos from "./useGitHubRepos.js";
 import styles from "./App.module.css";
 
 function App() {
-  const [repos, setRepos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [userName, setUserName] = useState("");
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(`https://api.github.com/users/${userName}/repos`)
-      .then((res) => res.json())
-      .then((data) => {
-        setRepos(data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setError(err);
-        setRepos([]);
-        setIsLoading(false);
-      });
-  }, [userName]);
+  const {repos, error, isLoading} = useGitHubRepos(userName);
 
   return (
     <div className={styles["app-container"]}>
       <h1>GitHub Repositories Dashboard</h1>
+      {error && <p className={styles.error}>Error: {error}</p>}
       <Routes>
         <Route
           path="/"
