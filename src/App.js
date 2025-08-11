@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom"; // Import Routes and Route
 import Home from "./Home.js";
 import RepoDetail from "./RepoDetail.js"; // Import the new component
 import useGitHubRepos from "./useGitHubRepos.js";
 import styles from "./App.module.css";
+import { useUser } from "./UserContext.js";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [userName, setUserName] = useState("");
-
+  const {userName} = useUser();
   const {repos, error, isLoading} = useGitHubRepos(userName);
 
   return (
@@ -20,8 +20,6 @@ function App() {
           path="/"
           element={
             <Home
-              userName={userName}
-              setUserName={setUserName}
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
               isLoading={isLoading}

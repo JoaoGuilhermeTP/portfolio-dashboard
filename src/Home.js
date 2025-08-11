@@ -2,9 +2,11 @@ import React from "react";
 import InputSearchBox from "./InputSearchBox.js";
 import Repos from "./Repos.js";
 import styles from "./Home.module.css";
+import { useUser } from "./UserContext";
 
-// This is the exact same component we had in App.js
-export default function Home({userName,setUserName,searchTerm,setSearchTerm,isLoading,repos}) {
+export default function Home({searchTerm,setSearchTerm,isLoading,repos}) {
+  const {userName, setUserName} = useUser();
+  
   return (
     <>
       <div className={styles.section}>
