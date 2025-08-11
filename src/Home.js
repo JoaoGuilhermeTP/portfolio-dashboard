@@ -1,11 +1,11 @@
 import React from "react";
 import InputSearchBox from "./InputSearchBox.js";
 import Repos from "./Repos.js";
+import useRepoStore from './store';
 import styles from "./Home.module.css";
-import { useUser } from "./UserContext";
 
-export default function Home({searchTerm,setSearchTerm,isLoading,repos}) {
-  const {userName, setUserName} = useUser();
+export default function Home({searchTerm,setSearchTerm}) {
+  const {userName, setUserName, repos, isLoading} = useRepoStore();
   
   return (
     <>
