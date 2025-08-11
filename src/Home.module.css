@@ -33,3 +33,13 @@ input[type="text"]:focus {
   padding: 12px 0;
   border-bottom: 1px solid #eee;
 }
+
+.loading {
+  color: #172040;
+  background-color: #b7b0dd;
+  border: 1px solid #2a2e41;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}

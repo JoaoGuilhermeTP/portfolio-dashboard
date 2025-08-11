@@ -26,7 +26,7 @@ export default function Home({userName,setUserName,searchTerm,setSearchTerm,isLo
       </div>
       <div className={styles.section}>
         {isLoading ? (
-          <p>Loading...</p>
+          <p className={styles.loading}>Loading...</p>
         ) : (
           <Repos repos={repos} searchTerm={searchTerm} />
         )}
