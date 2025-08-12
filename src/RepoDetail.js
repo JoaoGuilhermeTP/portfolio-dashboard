@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import useRepoStore from './store';
 
-export default function RepoDetail({ repos }) {
+export default function RepoDetail() {
+  const {repos} = useRepoStore();
   const { repoName } = useParams();
   const repo = repos.find(r => r.name === repoName);
 
