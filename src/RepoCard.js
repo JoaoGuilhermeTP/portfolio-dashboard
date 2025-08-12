@@ -1,18 +1,18 @@
-import styles from "./RepoCard.module.css"; // Add this import
-import { Link } from "react-router-dom";
+import React from 'react'; // 1. Import React
+import { Link } from 'react-router-dom';
+import styles from "./RepoCard.module.css";
 
-export default function RepoCard({ repo }) {
+// 2. Wrap the entire component definition in React.memo()
+const RepoCard = React.memo(function RepoCard({ repo }) {
+  console.log(`Rendering RepoCard for: ${repo.name}`);
+
   return (
     <div className={styles["repo-card"]}>
-      {" "}
-      {/* Changed this line */}
-      <Link to={`repo/${repo.name}`}>
+      <Link to={`/repo/${repo.name}`}>
         <h2>{repo.name}</h2>
       </Link>
       <p>{repo.description || "No description"}</p>
       <p className={styles["repo-details"]}>
-        {" "}
-        {/* Changed this line */}
         <strong>Language:</strong> {repo.language || "N/A"} &nbsp;|&nbsp;{" "}
         <strong>⭐ Stars:</strong> {repo.stargazers_count} &nbsp;|&nbsp;{" "}
         <strong>Updated:</strong>{" "}
@@ -23,4 +23,6 @@ export default function RepoCard({ repo }) {
       </a>
     </div>
   );
-}
+});
+
+export default RepoCard;
